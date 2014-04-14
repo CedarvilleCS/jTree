@@ -16,15 +16,16 @@ ul.jtree ul li {
 	background-repeat : no-repeat;
 	background-position : 0 8px, 0 0;
 	background-size : 8px 1px, 1px 100%;
-	background-image : url(img/icons/dot.png), url(img/icons/dot.png);
+	background-image: url(/images/icons/dot.png), url(/images/icons/dot.png);
 	padding:0;margin:0;
 	line-height:20px;
 }
 
 ul.jtree ul li:last-child { background-size : 8px 1px, 1px 8px; }
 
-ul.jtree span[data-state=open] { background-image:url(img/icons/folder_open.png); }
-ul.jtree span:not([data-state=open]) { background-image:url(img/icons/folder.png); }
+ul.jtree span.item-folder-class[data-state=open] { background-image: url(/images/icons/folder_open.png); }
+ul.jtree span:not([data-state=open]) { background-image: url(/images/icons/folder.png); }
+ul.jtree span.icon-document-class { background-image: url(images/icons/document.png); }
 
 ul.jtree span:hover {
 	color:blue;
