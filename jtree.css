@@ -23,9 +23,9 @@ ul.jtree ul li {
 
 ul.jtree ul li:last-child { background-size : 8px 1px, 1px 8px; }
 
-ul.jtree span.icon-folder-class[data-state=open] { background-image: url(/images/icons/folder_open.png); }
-ul.jtree span.icon-folder-class:not([data-state=open]) { background-image: url(/images/icons/folder.png); }
-ul.jtree span.icon-document-class { background-image: url(images/icons/document.png); }
+ul.jtree span.item-folder-class[data-state=open] { background-image: url(/images/icons/folder_open.png); }
+ul.jtree span.item-folder-class:not([data-state=open]) { background-image: url(/images/icons/folder.png); }
+ul.jtree span.item-document-class { background-image: url(images/icons/document.png); }
 
 ul.jtree span:hover {
 	color:blue;
