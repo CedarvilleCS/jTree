@@ -66,7 +66,6 @@
 				});
 			}
 
-			setIcons(span,opt);
 		});
 	};
 
@@ -80,11 +79,11 @@
 		var span = t.find('span'); span = span.not(span.next().prev());
 		if(typeof(filter) == "string") return span.filter(filter); return span;
 	};
-	
+
 	$.fn.jtreeAll = function(filter) // get all entry, files and folders, from current folder
 	{	if(typeof(filter) == "string") return $(this).find("span"+filter); return $(this).find("span");
 	}
-	
+
 	$.fn.jtreeChildFolders = function(filter) // get all folders inside current folder
 	{	var t = $(this); if(t.is("span")) t = t.next();
 		var f = t.children('li').children('span+ul'); if(typeof(filter) == "string") return f.prev(filter); return f.prev();
@@ -95,29 +94,29 @@
 		var span = t.children('span'); span = span.not(span.next('ul').prev());
 		if(typeof(filter) == "string") return span.filter(filter); return span;
 	};
-	
+
 	$.fn.jtreeChildAll = function(filter) // get all files and folders inside current folder
 	{	var t = $(this); if(t.is("span")) t = t.next();
 		if(typeof(filter) == "string") return t.children('li>span'+filter); return t.children('li>span');
 	}
-	
+
 	$.fn.jtreeOpened = function() // is current folder open ?
 	{	return ($(this).attr('data-state') == 'open');
 	}
-	
+
 	$.fn.jtreeClose = function(options) // close current folder
 	{	var t = $(this); if(t.attr('data-style') == 'unclosable') return this;
 		var opt = $.extend({}, $.fn.jtree.dopt, options);
 		closeFolder(t,t.next(),opt);
 		return this;
 	}
-	
+
 	$.fn.jtreeOpen = function(options) // open current folder
 	{	var opt = $.extend({}, $.fn.jtree.dopt, options);
 		var t = $(this); var ul = t.next(); if(ul.length != 1) return this;
 		openfolder(t,ul,opt); return this;
 	}
-	
+
 	$.fn.jtreeToggle = function(options) // toggle current folder
 	{	var opt = $.extend({}, $.fn.jtree.dopt, options);
 		var t = $(this);
@@ -137,7 +136,7 @@
 
 	$.fn.jtreeRemoveAllEmpty = function(options)
 	{	var t = $(this); var found=0;
-		t.find("li:not(.todel)>ul:empty").parent().addClass('todel');		
+		t.find("li:not(.todel)>ul:empty").parent().addClass('todel');
 		do{	found=0; ul = $.unique( t.find('li:not(.todel) > ul > li.todel').parent('ul') );
 			ul.each(function(){ $t=$(this); if($t.children('li:not(.todel)').length == 0){ $.unique($t.parent('li')).addClass('todel'); found=1; }});
 		} while(found);
@@ -166,7 +165,7 @@
 			if(li.parent().is(ftogo)) return false;
 			var type = "file";
 		}
-		
+
 		if($.isFunction(callback))
 		{	var fname = t.text();
 			var oldpath = t.jtreeGetPath();
@@ -278,7 +277,7 @@
 		var path = ''; p.each(function(){ path = $(this).html()+'/'+path; });
 		return path+t.html();
 	}
-	
+
 	$.fn.jtree.dopt = {
 		autoToggle:true,
 		multiFolder:"siblings",
